@@ -3,6 +3,7 @@ from sqlmodel import SQLModel, Field
 from datetime import datetime
 
 class Product(SQLModel, table=True):
+    __table_args__ = {"extend_existing": True}
     id: Optional[int] = Field(default=None, primary_key=True)
     name: str
     sku: str
@@ -11,6 +12,7 @@ class Product(SQLModel, table=True):
     price: float = 0.0
 
 class Movement(SQLModel, table=True):
+    __table_args__ = {"extend_existing": True}
     id: Optional[int] = Field(default=None, primary_key=True)
     product_id: int
     type: str
