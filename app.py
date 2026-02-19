@@ -1,6 +1,6 @@
 import streamlit as st
 from database import init_db
-from services import add_product, get_products, move_stock, get_alert_products, update_ptoduct, delete_product, get_movements
+from services import add_product, get_products, move_stock, get_alert_products, update_product, delete_product, get_movements
 import pandas as pd
 
 init_db()
@@ -98,7 +98,7 @@ with tab1:
         col1, col2 = st.columns(2)
 
         if col1.button("Update"):
-            update_ptoduct(selected_product.id, new_name, new_sku, new_min, new_price)
+            update_product(selected_product.id, new_name, new_sku, new_min, new_price)
             st.success("Updated")
 
         if col2.button("Delete"):
