@@ -23,7 +23,7 @@ st.markdown("""
 # with tab1:
 st.sidebar.header("Add Product")
 name = st.sidebar.text_input("Product Name")
-sku = st.sidebar.text_input("SKU")
+sku = st.sidebar.text_input("Stock Keeping Unit")
 min_threshold = st.sidebar.number_input("Min Stock", min_value=0)
 price = st.sidebar.number_input("Unit Price", min_value=0.0)
 
@@ -70,7 +70,7 @@ with tab1:
             status = "Low Stock" if p.quantity < p.min_threshold else "OK"
             data.append({
                 "Name": p.name,
-                "SKU": p.sku,
+                "Stock Keeping Unit": p.sku,
                 "Quantity": p.quantity,
                 "Unit Price": p.price,
                 "Stock Value": stock_value,
@@ -91,7 +91,7 @@ with tab1:
 
     if selected_product:
         new_name = st.text_input("Product Name", value=selected_product.name)
-        new_sku = st.text_input("SKU", value=selected_product.sku)
+        new_sku = st.text_input("Stock Keeping Unit", value=selected_product.sku)
         new_min = st.number_input("Min Threshold", value=selected_product.min_threshold)
         new_price = st.number_input("Price", value=selected_product.price)
 
