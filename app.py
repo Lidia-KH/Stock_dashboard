@@ -25,7 +25,7 @@ st.sidebar.header("Add Product")
 name = st.sidebar.text_input("Product Name")
 sku = st.sidebar.text_input("Stock Keeping Unit")
 min_threshold = st.sidebar.number_input("Min Stock", min_value=0)
-price = st.sidebar.number_input("Unit Price", min_value=0.0)
+price = st.sidebar.number_input("Unit Price (DZD)", min_value=0.0)
 
 if st.sidebar.button("Add Product"):
     add_product(name, sku, min_threshold, price)
@@ -61,7 +61,7 @@ with tab1:
     col1.metric("Total Products", len(products))
     col2.metric("Products in Alert", len(get_alert_products()))
     col3.metric("Total Units", sum(p.quantity for p in products))
-    col4.metric("Total Inventory Value", f"{total_inventory_value: .2f}")
+    col4.metric("Total Inventory Value (DZD)", f"{total_inventory_value: .2f}")
 
     if products:
         data = []
@@ -72,8 +72,8 @@ with tab1:
                 "Name": p.name,
                 "Stock Keeping Unit": p.sku,
                 "Quantity": p.quantity,
-                "Unit Price": p.price,
-                "Stock Value": stock_value,
+                "Unit Price (DZD)": p.price,
+                "Stock Value (DZD)": stock_value,
                 "Min Threshold": p.min_threshold,
                 "Status": status
             })
@@ -93,7 +93,7 @@ with tab1:
         new_name = st.text_input("Product Name", value=selected_product.name)
         new_sku = st.text_input("Stock Keeping Unit", value=selected_product.sku)
         new_min = st.number_input("Min Threshold", value=selected_product.min_threshold)
-        new_price = st.number_input("Price", value=selected_product.price)
+        new_price = st.number_input("Price (DZD)", value=selected_product.price)
 
         col1, col2 = st.columns(2)
 
@@ -109,7 +109,7 @@ with tab1:
 
     if alerts:
         for p in alerts:
-            st.warning(f"{p.name} ({p.sku}) | Current: {p.quantity} | Minimum: {p.min_threshold}")
+            st.warning(f"{p.name}  ({p.sku})  |  Current: {p.quantity}  |  Minimum: {p.min_threshold}")
     else:
         st.success("No products in alert")
 
