@@ -6,11 +6,7 @@ import pandas as pd
 init_db()
 
 st.set_page_config(page_title="StockPilot", page_icon= "🗂", layout="wide", initial_sidebar_state="collapsed")
-theme = st.toggle("Dark Mode")
-
-if theme:
-    st.markdown("<style>body { background-color: #111; color: white; }</style>", unsafe_allow_html=True)
-    
+  
 tab1, tab2 = st.tabs(["Dashboard", "Stock History"], width="stretch")
 
 st.markdown("""
