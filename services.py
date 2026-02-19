@@ -18,7 +18,7 @@ def get_products():
         return session.exec(select(Product)).all()
     
 
-def update_ptoduct(product_id, name, sku, min_threshold, price):
+def update_product(product_id, name, sku, min_threshold, price):
     with Session(engine) as session:
         product = session.get(Product, product_id)
         if product:
