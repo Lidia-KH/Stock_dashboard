@@ -10,6 +10,13 @@ tab1, tab2 = st.tabs(["Dashboard", "Stock History"], width="stretch")
 
 st.markdown("""
     <style>
+        .setDeployButton {
+            display: none;
+        }
+        footer {
+            visibility: hidden;
+        }
+        
         .stMetric {
             padding: 15px;
             border-radius: 10px;
