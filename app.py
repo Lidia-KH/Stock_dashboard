@@ -16,7 +16,7 @@ st.markdown("""
         footer {
             visibility: hidden;
         }
-        
+        .css-1rs6os.edgvbvh3 {visibility: hidden;}
         .stMetric {
             padding: 15px;
             border-radius: 10px;
